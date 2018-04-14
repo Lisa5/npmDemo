@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'my-font';
+    src: url('../fonts/icomoon.eot') format('eot'),
+         url('../fonts/icomoon.svg') format('svg'),
+         url('../fonts/icomoon.ttf') format('truetype'),
+         url('../fonts/icomoon.woff') format('woff');
+    font-weight: 400;
+    font-size: normal;
+}
+html {
+    background-color: antiquewhite;
+    font-family: 'my-font';
+}
