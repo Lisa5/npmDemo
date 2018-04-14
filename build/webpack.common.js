@@ -17,7 +17,8 @@ spinner.start()
 module.exports = {
     mode: 'production',
     entry: {
-        app: './src/main.js'
+        main: './src/main.js',
+        vendor: ['lodash']
     },
     output: {
         filename: '[name].bundle.js',
@@ -32,6 +33,7 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
+                include: path.resolve(__dirname, "../src"),
                 use: ['style-loader', 'css-loader']
             },
             {
@@ -40,7 +42,13 @@ module.exports = {
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
+                include: path.resolve(__dirname, "../src"),
                 use: ['file-loader']
+            },
+            {
+                test: /\.js$/,
+                include: path.resolve(__dirname, "../src"),
+                loader: "babel-loader"
             }
         ]
     },

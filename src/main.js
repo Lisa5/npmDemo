@@ -8,7 +8,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 function component () {
     var el = document.createElement('div');
-    el.innerHTML = 'cube 55 is:sss ' + cube(55);
+    el.innerHTML = 'cube 55 is: ' + cube(55);
     console.log(el)
     return el
 }

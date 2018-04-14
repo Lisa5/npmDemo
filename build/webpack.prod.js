@@ -15,8 +15,14 @@ module.exports = mergeConfig(commonWebpackConfig,{
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production')
         }),
-        new webpack.optimize.CommonsChunkPlugin({
+        new webpack.optimize.SplitChunksPlugin({
             name: 'common' // 指定公共 bundle 的名称。
+        }),
+        new webpack.optimize.RuntimeChunkPlugin({
+            name: "vender"
+        }),
+        new webpack.optimize.RuntimeChunkPlugin({
+            name: "manifest"
         })
         // new webpack.optimize.UglifyJsPlugin({
         //     compress: {
