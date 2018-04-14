@@ -2,7 +2,9 @@
 import './assets/css/common.css'
 import {cube} from './math.js'
 
-// import './assets/img/bg-box.png'
+if (process.env.NODE_ENV !== 'production') {
+    console.log('Looks like we are in development mode!');
+}
 
 function component () {
     var el = document.createElement('div');
