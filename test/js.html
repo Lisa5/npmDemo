@@ -1,0 +1,62 @@
+
+<!doctype tml>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>js
+    </title>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li><button>1</button></li>
+            <li>
+                <button>2</button>
+            </li>
+            <li>
+                <button>3</button>
+            </li>
+            <li>
+                <button>4</button>
+            </li>
+          
+        </ul>
+    </div>
+    <script>
+        console.log("222")
+        var lis = document.getElementsByTagName("button"); 
+        function alertVal(val) {
+            return function () {
+                alert("您/点击了第" + val + "个li！");
+                console.log("222")
+            }
+        }
+        /** 立即执行函数 */
+        // for (var j = 0; j < lis.length; j++){
+        //     (function(){
+        //         var jj = j;
+        //         lis[jj].onclick = function () {
+        //             alert("您/点击了第" + jj + "个li！");
+        //             console.log("222")
+        //         }
+        //     })()  
+        // }
+        /** 利用let的块作用域 */
+        // for (let j = 0; j < lis.length; j++) {  // 这里使用了let声明变量
+        //     lis[j].onclick = function () {
+        //         alert("您/点击了第" + j + "个li！");
+        //         console.log("222")
+        //     }
+        // }
+        /** 利用闭包 */
+        for (let j = 0; j < lis.length; j++) {  // 这里使用了let声明变量
+            lis[j].onclick = alertVal(j)
+        }
+    </script>
+</body>
+<footer></footer>
+
+</html>
+
