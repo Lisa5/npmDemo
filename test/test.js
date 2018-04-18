@@ -78,3 +78,24 @@ let str = 'fun';
  * delete fun;
  * 
  */
+
+function fun(n, o) {
+    console.log(o);
+    return {
+        fun: function (m) {
+            return fun(m, n)
+        }
+    }
+}
+
+var a = fun(1).fun(2).fun(4).fun(8)
+
+var User = {
+    count: 1,
+    getCount: function () {
+        return this.count
+    }
+}
+var fn = User.getCount
+console.log(fn()); //undefined
+console.log(User.getCount())

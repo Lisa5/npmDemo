@@ -417,44 +417,73 @@
         // }
     /** 结束 */
     /** 11.4 快速排序 */
-    function quickSort (arr, low, high) {
-        if (high <= low) {
-            return
-        }
-        let j = position(arr, low, high);
-        quickSort(arr, low, j - 1);
-        quickSort(arr, j + 1, high)
-    }
-    function position(arr, low, high) {
-        if (high <= low) {
-            return
-        }
-        let i = low
-        let j = high + 1
-        let pv = low;
-        while(true) {
-            while (arr[++i] < arr[pv]) {
-                if (i == high) {
-                    break
-                }
-            }
-            while(arr[--j] > arr[pv]){
-                if (j == low) {
-                    break
-                }
-            }
-            if (i >= j) {
-                break
-            }
-            swapArray(arr, i, j)
-        }
-        swapArray(arr, low, j)
-        return j
-    }
-    quickSort(arr, 0, len - 1)
+        // function quickSort (arr, low, high) {
+        //     if (high <= low) {
+        //         return
+        //     }
+        //     let j = position(arr, low, high);
+        //     quickSort(arr, low, j - 1);
+        //     quickSort(arr, j + 1, high)
+        // }
+        // function position(arr, low, high) {
+        //     if (high <= low) {
+        //         return
+        //     }
+        //     let i = low
+        //     let j = high + 1
+        //     let pv = low;
+        //     while(true) {
+        //         while (arr[++i] < arr[pv]) {
+        //             if (i == high) {
+        //                 break
+        //             }
+        //         }
+        //         while(arr[--j] > arr[pv]){
+        //             if (j == low) {
+        //                 break
+        //             }
+        //         }
+        //         if (i >= j) {
+        //             break
+        //         }
+        //         swapArray(arr, i, j)
+        //     }
+        //     swapArray(arr, low, j)
+        //     return j
+        // }
+        // quickSort(arr, 0, len - 1)
     /** 结束 */
 
-    console.log(arr)
+    // console.log(arr)
+    
+    /** 12. Object.defineProperty */
+        let o = {name: 'Lisa'}
+        /**
+         * writable 是否可被重写
+         * enumerable 是否可枚举，默认false
+         * configurable 是否可以删除目标属性或是否可以再次修改属性的特性，默认false
+         */
+        Object.defineProperty(o, 'age', { value: '19', writable: false, enumerable: true, configurable: false})
+        o.age = '20'
+        delete o.age
+        console.log(o.age)
+        console.log(o)
+        /** getter setter
+         * 当使用了getter或setter方法，不允许使用writable和value这两个属性
+         */
+        Object.defineProperty(o, 'country', {
+            get: function () {
+                return initValue
+            },
+            set: function (value) {
+                initValue = value
+            }
+        })
+        o.country = 'china'
+        console.log(o.country)
+    /** 结束 */
+
+    
 /** 结束 */
 
 
