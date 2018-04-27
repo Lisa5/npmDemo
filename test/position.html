@@ -19,8 +19,8 @@
     .red{color: red;}
 </style>
 <body>
-    <p class="blue red">内容</p> //red
-    <div class="block" style="position: static">
+    <p class="blue red">内容</p>
+    <!-- <div class="block" style="position: static">
          position: static
         <div class="block" style="position: absolute">
             position: absolute
@@ -28,15 +28,18 @@
     </div>
     <div class="block" style="position: relative">
         position: relative
+    </div> -->
+    <div style="position: absolute;top:100px;">
+        <div class="block" style="position: absolute;top:0px;">
+            <p>position: absolute</p>
+        </div>
+        <div class="block" style="position: fixed;top:0px;">
+            <p style="word-wrap: none">position: fixed</p>
+        </div>
     </div>
-    <div class="block" style="position: absolute">
-        position: absolute
-    </div>
-    <div class="block" style="position: fixed">
-        position: fixed
-    </div>
-    <div class="block" style="position: sticky">
+   
+    <!-- <div class="block" style="position: sticky">
         position: sticky
-    </div>
+    </div> -->
 </body>
 </html>

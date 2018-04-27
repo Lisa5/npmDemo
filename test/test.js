@@ -65,7 +65,7 @@
 
 
 
-let str = 'fun';
+// let str = 'fun';
 
 // str.toLocaleLowerCase();
 // str.rrrrr();
@@ -79,23 +79,34 @@ let str = 'fun';
  * 
  */
 
-function fun(n, o) {
-    console.log(o);
-    return {
-        fun: function (m) {
-            return fun(m, n)
-        }
-    }
-}
+// function fun(n, o) {
+//     console.log(o);
+//     return {
+//         fun: function (m) {
+//             return fun(m, n)
+//         }
+//     }
+// }
 
-var a = fun(1).fun(2).fun(4).fun(8)
+// var a = fun(1).fun(2).fun(4).fun(8)
 
-var User = {
-    count: 1,
-    getCount: function () {
-        return this.count
-    }
+// var User = {
+//     count: 1,
+//     getCount: function () {
+//         return this.count
+//     }
+// }
+// var fn = User.getCount
+// console.log(fn()); //undefined
+// console.log(User.getCount())
+
+/** 对象转数组，没有捷径 */
+let str = {1: '11', 2: '22', 3: '33'}
+let arry = []
+for (o in str) {
+    let obj = {}
+    obj = { o: str[o]}
+    arry.push(obj)
 }
-var fn = User.getCount
-console.log(fn()); //undefined
-console.log(User.getCount())
+console.log(arry)
+

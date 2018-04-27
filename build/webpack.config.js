@@ -15,7 +15,7 @@ var spinner = ora('building for production...')
 spinner.start()
 
 module.exports = {
-    mode: 'production',
+    mode: "development",
     entry: {
         app: './src/main.js'
     },
@@ -25,10 +25,10 @@ module.exports = {
         publicPath: '/'
     },
     devtool: 'inline-source-map',
-    devServer: {
-        contentBase: "../dist",
-        hot: true
-    },
+    // devServer: {
+    //     contentBase: "../dist",
+    //     hot: true
+    // },
     resolve:{
         extensions:['.vue','.js','.json']
     },

@@ -4,9 +4,10 @@ const mergeConfig = require('webpack-merge');
 const commonWebpackConfig = require('./webpack.common.js');
 
 module.exports = mergeConfig(commonWebpackConfig,{
+    mode: "development",
     devtool: 'inline-source-map',
     devServer: {
-        contentBase: "../dist",
+        contentBase: "./dist",
         hot: true
     },
     resolve: {
