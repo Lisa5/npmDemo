@@ -1,5 +1,5 @@
 
-import './assets/css/common.css'
+// import './assets/css/common.css'
 import {cube} from './math.js'
 
 if (process.env.NODE_ENV !== 'production') {

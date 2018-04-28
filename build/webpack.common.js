@@ -4,6 +4,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var CleanWebpackPlugin = require('clean-webpack-plugin')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const webpack = require('webpack')
+var config = require('../config')
 
 console.log(
     '  Tip:\n' +
@@ -22,7 +23,7 @@ module.exports = {
     },
     output: {
         filename: '[name].bundle.js',
-        path: path.join(__dirname, '../dist'),
+        path: config.build.assetsRoot,
         publicPath: '/'
     },
     devtool: 'inline-source-map',
@@ -53,8 +54,12 @@ module.exports = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin(['../dist']),
-        new HtmlWebpackPlugin({ title: 'Output managrment' })
+        new CleanWebpackPlugin(config.build.assetsRoot, {
+            root: __dirname,
+            verbose: true,
+            dry: false
+        }),
+        new HtmlWebpackPlugin({template: './index.html'})
     ]
 }
 
