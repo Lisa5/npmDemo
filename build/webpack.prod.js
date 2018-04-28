@@ -5,6 +5,7 @@ var config = require('../config')
 var path = require('path')
 
 module.exports = mergeConfig(commonWebpackConfig,{
+    mode: 'production',
     devtool: 'source-map',
     output: {
         path: config.build.assetsRoot,

@@ -65,7 +65,7 @@
 
 
 
-let str = 'fun';
+// let str = 'fun';
 
 // str.toLocaleLowerCase();
 // str.rrrrr();
@@ -114,3 +114,14 @@ function A(x){
 }
 function B(y){console.log(this.x + " : y = " + y );}
 B.bind(new A(5),6)();
+
+/** 对象转数组，没有捷径 */
+let str = {1: '11', 2: '22', 3: '33'}
+let arry = []
+for (o in str) {
+    let obj = {}
+    obj = { o: str[o]}
+    arry.push(obj)
+}
+console.log(arry)
+
