@@ -109,19 +109,33 @@
 // console.log(values('foo')); // ["f", "o", "o"]
 // console.log(entries('foo')); // [["0": "f"], ["1": "o"], ["2": "o"]]
 
-function A(x){
-  this.x = x;  
-}
-function B(y){console.log(this.x + " : y = " + y );}
-B.bind(new A(5),6)();
+// function A(x){
+//   this.x = x;  
+// }
+// function B(y){console.log(this.x + " : y = " + y );}
+// B.bind(new A(5),6)();
 
-/** 对象转数组，没有捷径 */
-let str = {1: '11', 2: '22', 3: '33'}
-let arry = []
-for (o in str) {
-    let obj = {}
-    obj = { o: str[o]}
-    arry.push(obj)
+// /** 对象转数组，没有捷径 */
+// let str = {1: '11', 2: '22', 3: '33'}
+// let arry = []
+// for (o in str) {
+//     let obj = {}
+//     obj = { o: str[o]}
+//     arry.push(obj)
+// }
+// console.log(arry)
+
+
+function sortNumber(a, b) {
+  return b - a
 }
-console.log(arry)
+var arr = new Array(6)
+arr[0] = "10"
+arr[1] = "5"
+arr[2] = "40"
+arr[3] = "25"
+arr[4] = "1000"
+arr[5] = "1"
+console.log(arr.valueOf())
+console.log(arr.sort(sortNumber))
 

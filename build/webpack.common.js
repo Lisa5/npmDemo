@@ -3,6 +3,7 @@ var ora = require('ora')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var CleanWebpackPlugin = require('clean-webpack-plugin')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const { VueLoaderPlugin } = require('vue-loader')
 const webpack = require('webpack')
 var config = require('../config')
 
@@ -28,10 +29,19 @@ module.exports = {
     },
     devtool: 'inline-source-map',
     resolve: {
-        extensions: ['.vue', '.js', '.json']
+        extensions: ['.vue', '.js', '.json'],
+        alias: {
+          'vue$': 'vue/dist/vue.esm.js', //构建模版相关
+          'common': path.resolve(__dirname, '../src/common')
+        }
     },
     module: {
         rules: [
+            {
+                test: /\.vue$/,
+                include: path.resolve(__dirname, "../src"),
+                loader: 'vue-loader'
+            },
             {
                 test: /\.css$/,
                 include: path.resolve(__dirname, "../src"),
@@ -54,6 +64,7 @@ module.exports = {
         ]
     },
     plugins: [
+        new VueLoaderPlugin(),
         new CleanWebpackPlugin(config.build.assetsRoot, {
             root: __dirname,
             verbose: true,
